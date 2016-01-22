@@ -28,7 +28,11 @@ foreach ($_required_extensions as $ext) {
 }
 
 echo 'The following missing extensions will get installed:' . PHP_EOL;
-echo implode(', ', $_havetoinstall) . PHP_EOL;
+echo implode(', ', $_havetoinstall);
+if (count($_havetoinstall) === 0) {
+    echo 'None.';
+}
+echo PHP_EOL;
 
 $input = readline('Do you want to proceed? (y/n): ');
 if ($input !== 'y') {
@@ -40,5 +44,5 @@ foreach ($_havetoinstall as $ext) {
     passthru('apt-get install --force-yes php5-' . $ext);
 }
 
-echo 'Extensions successfully installed!' . PHP_EOL . PHP_EOL;
+echo 'Extensions successfully checked!' . PHP_EOL . PHP_EOL;
 echo '' . PHP_EOL;
