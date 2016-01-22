@@ -37,10 +37,7 @@ if ($input !== 'y') {
 echo PHP_EOL;
 
 foreach ($_havetoinstall as $ext) {
-    exec('apt-get install --force-yes php5-' . $ext, $output);
-    foreach ($output as $line) {
-        echo $line . PHP_EOL;
-    }
+    passthru('apt-get install --force-yes php5-' . $ext);
 }
 
 echo 'Extensions successfully installed!' . PHP_EOL . PHP_EOL;
