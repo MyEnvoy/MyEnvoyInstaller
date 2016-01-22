@@ -12,7 +12,7 @@
  *  - mhash
  * 
  */
-$_required_extensions = array('apc', 'apcu', 'curl', 'gd', 'mcrypt', 'mhash');
+$_required_extensions = array('apcu', 'curl', 'gd', 'mcrypt', 'mhash');
 $_havetoinstall = array();
 
 
@@ -37,7 +37,7 @@ if ($input !== 'y') {
 echo PHP_EOL;
 
 foreach ($_havetoinstall as $ext) {
-    exec('apt-get install -y php5-' . $ext, $output);
+    exec('apt-get install --force-yes php5-' . $ext, $output);
     foreach ($output as $line) {
         echo $line . PHP_EOL;
     }
