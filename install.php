@@ -29,4 +29,19 @@ foreach ($_required_extensions as $ext) {
 
 echo 'The following missing extensions will get installed:' . PHP_EOL;
 echo implode(', ', $_havetoinstall) . PHP_EOL;
+
+$input = readline('Do you want to proceed? (y/n): ');
+if ($input !== 'y') {
+    exit();
+}
+echo PHP_EOL;
+
+foreach ($_havetoinstall as $ext) {
+    exec('apt-get install -y php5-' . $ext, $output);
+    foreach ($output as $line) {
+        echo $line . PHP_EOL;
+    }
+}
+
+echo 'Extensions successfully installed!' . PHP_EOL . PHP_EOL;
 echo '' . PHP_EOL;
