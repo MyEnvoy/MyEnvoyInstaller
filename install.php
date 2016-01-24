@@ -4,7 +4,6 @@
  * Copyright 2016 | Licensed under MIT
  * 
  * Currently additionally required extensions for MyEnvoy:
- *  - apc
  *  - acpu
  *  - curl
  *  - gd
